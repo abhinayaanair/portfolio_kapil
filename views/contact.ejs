@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" href="/images/A.png">
+    <link rel="stylesheet" href="/style/navbar.css">
+    <link rel="stylesheet" href="/style/contact.css">
+</head>
+<body>
+    <div class="main">
+        <div class="content">
+            <div class="header">
+                <h1>CONTACT</h1>
+                <h2>GET IN <span>TOUCH</span></h2>
+            </div>
+            <div class="contact">
+                <div class="contact-text">
+                    <h2>DON'T BE SHY!</h2>
+                    <p>Feel free to get in touch with me. I am always open to discussing new projects, creative ideas or opportunities to be part of your visions.</p>
+                    <br>
+                    <div class="mail-div contact-icon-div">
+                        <div class="icon-contact-div"><i class="fa-solid fa-envelope icon-contact"></i></div>
+                        <div><span>MAIL ME</span> <br>kapilyadav.projects@gmail.com</div>
+                    </div>
+                    <div class="call-div contact-icon-div">
+                        <!-- <div class="icon-contact-div"><i class="fa-solid fa-phone icon-contact"></i></div> -->
+                        <!-- <div><span>CALL ME</span> <br> 7014757774</div> -->
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form action="/portfolio/contact/send" method="post">
+                        <div class="input-div">
+                            <input type="text" name="name" placeholder="Your name" required>
+                            <input type="email" name="email" placeholder="Your email" class="email"  required>
+                          
+                            <input type="text" name="subject" placeholder="Your subject" required>
+                        </div>
+                        <div class="textarea-div">
+                            <textarea name="message" placeholder="Your message" cols="45" rows="10" required></textarea>
+                        </div>
+                        <button onclick="showFlash()" type="submit">
+                            Send Message <i class="fa-solid fa-paper-plane paper-plane send"></i>
+                        </button>
+                        <br><br>
+                       
+                    </form>
+
+                    
+                </div>
+                <h1 class="displayMessage" style="position: absolute;  ">Email sent successfully</h1>
+            </div>
+            <div class="navigation-bar">
+                <nav>
+                    <ul>
+                        <li class="house-li"><a href="/portfolio"><i class="fa-solid fa-house" id="house"></i></a></li>
+                        <li class="about-li"><a href="/portfolio/about"><i class="fa-solid fa-user" id="about"></i></a></li>
+                        <li><a href="/portfolio/projects"><i class="fa-solid fa-briefcase" id="portfolio"></i></a></i></li>
+                        <li><a href="/portfolio/contact"><i class="fa-solid fa-envelope" id="contact"></i></a></li>
+                        
+                    </ul>
+                    <ul class="sidebar">
+                        <li onclick=hideSidebar()><i class="fa-solid fa-xmark" id="close"></i></li>
+                        <li class="house-li" ><i class="fa-solid fa-house" id="house-nav"></i><a href="/portfolio" id="house-nav">Home</a></li>
+                        <div></div>
+                        <li class="about-li"><i class="fa-solid fa-user" id="about-nav"></i><a href="/portfolio/about" id="about-nav">About</a></li>
+                        <div></div>
+                        <li><i class="fa-solid fa-briefcase" id="portfolio-nav"></i><a href="/portfolio/projects" id="portfolio-nav">Portfolio</a></i></li>
+                        <div></div>
+                        <li><i class="fa-solid fa-envelope" id="contact-nav"></i><a href="/portfolio/contact" id="contact-nav">Contact</a></li>
+                        <div></div>
+                      
+                       
+                    </ul>
+                </nav>
+                <div class="ham-div" onclick=showSidebar()><i class="fa-solid fa-bars hamburger-menu"></i></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const sidebar = document.querySelector(".sidebar");
+        const image = document.querySelector(".img")
+        const display=document.querySelector(".displayMessage")
+        function showSidebar() {
+            sidebar.style.display = "flex";
+            image.style.visibility = "hidden";
+        }
+        function hideSidebar() {
+            sidebar.style.display = "none";
+            image.style.visibility = "visible";
+        }
+
+        function showFlash() {
+            setTimeout(()=> {
+                display.style.visibility = "visible";
+            }, 3000);
+        }
+        
+        function clearForm() {
+            // Clear input fields
+            document.querySelectorAll('input[type="text"], input[type="email"]').forEach(input => input.value = '');
+            // Clear textarea
+            document.querySelector('textarea').value = '';
+        }
+
+    </script>
+</body>
+</html>
